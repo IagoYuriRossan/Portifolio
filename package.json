@@ -7,7 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "dev": "cross-env CHOKIDAR_USEPOLLING=true CHOKIDAR_INTERVAL=100 expo start --web"
+    "dev": "cross-env CHOKIDAR_USEPOLLING=true CHOKIDAR_INTERVAL=100 expo start --web",
+    "build": "expo export:web"
   },
   "dependencies": {
     "expo": "~48.0.0",
