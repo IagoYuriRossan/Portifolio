@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Linking } from 'react-native';
-import styles from './styles';
+import { useTheme } from '../context/ThemeContext';
+import { getStyles } from './themedStyles';
 
 const sampleProjects = [
   {
@@ -30,6 +31,9 @@ const sampleProjects = [
 ];
 
 const Projects = () => {
+  const { theme } = useTheme();
+  const styles = getStyles(theme);
+
   return (
     <View style={styles.section} nativeID="divProjetos">
       <Text style={styles.sectionTitle}>Projetos</Text>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import styles from './styles';
+import { useTheme } from '../context/ThemeContext';
+import { getStyles } from './themedStyles';
 
 const experiences = [
   {
@@ -41,13 +42,16 @@ const experiences = [
 ];
 
 const Experiences = () => {
+  const { theme } = useTheme();
+  const styles = getStyles(theme);
+
   return (
     <View style={styles.section} nativeID="divExperiencias">
       <Text style={styles.sectionTitle}>Experiências</Text>
       {experiences.map(e => (
         <View key={e.id} style={{ marginBottom: 8 }}>
-          <Text style={{ fontWeight: '700' }}>{e.role} — {e.company}</Text>
-          <Text style={{ color: '#666', marginBottom: 4 }}>{e.period}</Text>
+          <Text style={styles.expRole}>{e.role} — {e.company}</Text>
+          <Text style={styles.expPeriod}>{e.period}</Text>
           <Text style={styles.paragraph}>{e.desc}</Text>
         </View>
       ))}

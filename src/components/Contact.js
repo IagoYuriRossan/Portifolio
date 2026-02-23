@@ -1,12 +1,15 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Linking } from 'react-native';
-import styles from './styles';
+import { useTheme } from '../context/ThemeContext';
+import { getStyles } from './themedStyles';
 
 const Contact = () => {
+  const { theme } = useTheme();
+  const styles = getStyles(theme);
   const email = 'iagorossan321@gmail.com';
   const phone = '+5515992849046';
   const github = 'https://github.com/IagoYuriRossan';
-  const linkedin = 'https://linkedin.com/in/iago-yuri-rossan';
+  const linkedin = 'https://www.linkedin.com/in/iago-yuri-rossan-ab792419b/';
 
   return (
     <View style={styles.section} nativeID="divContato">

@@ -1,10 +1,13 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, Linking, Platform } from 'react-native';
-import styles from './styles';
+import { useTheme } from '../context/ThemeContext';
+import { getStyles } from './themedStyles';
 
 const Hero = () => {
+  const { theme } = useTheme();
+  const styles = getStyles(theme);
   const isWeb = Platform.OS === 'web';
-  const localWebPath = '/assets/profile.jpg';
+  const localWebPath = '/assets/profile.JPG';
   const fallback = 'https://via.placeholder.com/400.png?text=Iago';
 
   return (
@@ -32,7 +35,7 @@ const Hero = () => {
         <TouchableOpacity style={styles.socialIcon} onPress={() => Linking.openURL('https://github.com/IagoYuriRossan')}>
           <Text style={styles.socialIconText}>GH</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.socialIcon} onPress={() => Linking.openURL('https://linkedin.com/in/iago-yuri-rossan')}>
+        <TouchableOpacity style={styles.socialIcon} onPress={() => Linking.openURL('https://www.linkedin.com/in/iago-yuri-rossan-ab792419b/')}>
           <Text style={styles.socialIconText}>in</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.socialIcon} onPress={() => Linking.openURL('mailto:iagorossan321@gmail.com')}>

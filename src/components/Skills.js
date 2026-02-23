@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import styles from './styles';
+import { useTheme } from '../context/ThemeContext';
+import { getStyles } from './themedStyles';
 
 const skills = {
   'Linguagens & Tecnologias': ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'React Native', 'Node.js', 'Python', 'MySQL', 'MongoDB'],
@@ -12,12 +13,15 @@ const skills = {
 };
 
 const Skills = () => {
+  const { theme } = useTheme();
+  const styles = getStyles(theme);
+
   return (
     <View style={styles.section} nativeID="divHabilidades">
       <Text style={styles.sectionTitle}>Habilidades</Text>
       {Object.keys(skills).map(cat => (
         <View key={cat} style={{ marginBottom: 8 }}>
-          <Text style={{ fontWeight: '700' }}>{cat}</Text>
+          <Text style={styles.expRole}>{cat}</Text>
           <Text style={styles.paragraph}>{skills[cat].join(' · ')}</Text>
         </View>
       ))}

@@ -5,23 +5,18 @@ const { width } = Dimensions.get('window');
 // Breakpoints para diferentes tamanhos de tela
 const isMobile = width < 480;
 const isTablet = width >= 480 && width < 768;
-const isSmallLaptop = width >= 768 && width < 1024;  // 15"
-const isMediumLaptop = width >= 1024 && width < 1366; // 15.6", 16"
-const isLargeScreen = width >= 1366;  // 19.5", 21.5"+
+const isSmallLaptop = width >= 768 && width < 1024;
+const isMediumLaptop = width >= 1024 && width < 1366;
+const isLargeScreen = width >= 1366;
 
 const isWide = width > 800;
-const PRIMARY = '#06b6d4';
-const ACCENT = '#0891b2';
-const BG = '#0f172a';
-
-// Largura máxima do conteúdo para telas grandes
 const maxContentWidth = 1200;
 
-export default StyleSheet.create({
+export const getStyles = (theme) => StyleSheet.create({
   container: {
     padding: isMobile ? 12 : isTablet ? 16 : isSmallLaptop ? 24 : 40,
     paddingTop: Platform.OS === 'web' ? 48 : 24,
-    backgroundColor: BG,
+    backgroundColor: theme.bg,
     alignItems: 'center'
   },
   innerContainer: {
@@ -45,17 +40,17 @@ export default StyleSheet.create({
     width: isWide ? 140 : 96,
     height: isWide ? 140 : 96,
     borderRadius: 100,
-    backgroundColor: '#1e293b',
+    backgroundColor: theme.card,
     marginBottom: 12
   },
   name: {
     fontSize: isWide ? 34 : 22,
     fontWeight: '800',
     letterSpacing: 0.3,
-    color: '#f8fafc'
+    color: theme.text
   },
   subtitle: {
-    color: '#94a3b8',
+    color: theme.textSecondary,
     marginTop: 6,
     fontSize: isWide ? 16 : 13
   },
@@ -65,7 +60,7 @@ export default StyleSheet.create({
   },
   navLink: {
     marginHorizontal: 12,
-    color: '#06b6d4',
+    color: theme.primary,
     fontWeight: '600',
     fontSize: 15
   },
@@ -73,9 +68,9 @@ export default StyleSheet.create({
     marginVertical: 16,
     padding: isMobile ? 14 : 18,
     borderRadius: 10,
-    backgroundColor: '#1e293b',
+    backgroundColor: theme.card,
     shadowColor: '#000',
-    shadowOpacity: 0.2,
+    shadowOpacity: theme.mode === 'dark' ? 0.2 : 0.08,
     shadowRadius: 8,
     elevation: 2,
     width: '100%',
@@ -85,12 +80,12 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     marginBottom: 10,
-    color: '#f8fafc'
+    color: theme.text
   },
   paragraph: {
     fontSize: 15,
     lineHeight: 22,
-    color: '#94a3b8'
+    color: theme.textSecondary
   },
   projectsRow: {
     flexDirection: 'row',
@@ -99,29 +94,29 @@ export default StyleSheet.create({
   },
   projectCard: {
     padding: 14,
-    backgroundColor: '#1e293b',
+    backgroundColor: theme.card,
     marginVertical: 8,
     borderRadius: 8,
     width: isMobile ? '100%' : isTablet ? '100%' : '48%',
     shadowColor: '#000',
-    shadowOpacity: 0.2,
+    shadowOpacity: theme.mode === 'dark' ? 0.2 : 0.08,
     shadowRadius: 6,
     elevation: 2
   },
   projectTitle: {
     fontWeight: '700',
     marginBottom: 6,
-    color: '#f8fafc'
+    color: theme.text
   },
   cta: {
     marginTop: 12,
-    backgroundColor: PRIMARY,
+    backgroundColor: theme.primary,
     padding: 12,
     borderRadius: 8,
     alignItems: 'center'
   },
   ctaText: {
-    color: '#0f172a',
+    color: theme.buttonText,
     fontWeight: '700'
   },
   footer: {
@@ -130,12 +125,12 @@ export default StyleSheet.create({
     padding: 12
   },
   footerText: {
-    color: '#94a3b8'
+    color: theme.textSecondary
   },
   logo: {
     fontWeight: '800',
     fontSize: 20,
-    color: '#06b6d4'
+    color: theme.primary
   },
   logoContainer: {
     alignItems: 'center'
@@ -143,18 +138,32 @@ export default StyleSheet.create({
   logoMain: {
     fontWeight: '900',
     fontSize: isMobile ? 32 : 42,
-    color: '#06b6d4',
+    color: theme.primary,
     letterSpacing: -2
   },
   logoSub: {
     fontSize: 10,
-    color: '#06b6d4',
+    color: theme.primary,
     letterSpacing: 2,
     marginTop: -6
   },
   topNavRight: {
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  themeToggle: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: theme.card,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 16,
+    borderWidth: 1,
+    borderColor: theme.border
+  },
+  themeToggleText: {
+    fontSize: 18
   },
 
   /* HERO */
@@ -180,38 +189,38 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   greeting: {
-    color: '#06b6d4',
+    color: theme.primary,
     fontSize: 20,
     fontWeight: '600',
     marginBottom: 12,
     borderLeftWidth: 2,
-    borderLeftColor: '#06b6d4',
+    borderLeftColor: theme.primary,
     paddingLeft: 8
   },
   heroTitle: {
     fontSize: isMobile ? 24 : isTablet ? 28 : isSmallLaptop ? 36 : 44,
     fontWeight: '800',
     marginBottom: 12,
-    color: '#f8fafc'
+    color: theme.text
   },
   highlight: {
-    color: '#06b6d4'
+    color: theme.primary
   },
   heroDesc: {
     fontSize: 16,
-    color: '#94a3b8',
+    color: theme.textSecondary,
     marginBottom: 16,
     maxWidth: 720
   },
   heroButton: {
-    backgroundColor: '#06b6d4',
+    backgroundColor: theme.primary,
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 30,
     alignSelf: 'flex-start'
   },
   heroButtonText: {
-    color: '#0f172a',
+    color: theme.buttonText,
     fontWeight: '700'
   },
   heroAvatar: {
@@ -219,7 +228,7 @@ export default StyleSheet.create({
     height: isMobile ? 160 : isTablet ? 200 : isSmallLaptop ? 220 : 280,
     borderRadius: 9999,
     borderWidth: 4,
-    borderColor: '#06b6d4'
+    borderColor: theme.avatarBorder
   },
   socialLeft: {
     position: isMobile || isTablet ? 'relative' : 'absolute',
@@ -234,14 +243,14 @@ export default StyleSheet.create({
   socialIcon: {
     width: 36,
     height: 36,
-    backgroundColor: '#06b6d4',
+    backgroundColor: theme.primary,
     borderRadius: 8,
     marginVertical: 6,
     alignItems: 'center',
     justifyContent: 'center'
   },
   socialIconText: {
-    color: '#0f172a',
+    color: theme.buttonText,
     fontWeight: '700',
     fontSize: 14
   },
@@ -254,8 +263,18 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   emailText: {
-    color: '#06b6d4',
+    color: theme.primary,
     fontWeight: '600',
     fontSize: 14
+  },
+  
+  // Estilos específicos para experiências
+  expRole: {
+    fontWeight: '700',
+    color: theme.text
+  },
+  expPeriod: {
+    color: theme.primary,
+    marginBottom: 4
   }
 });

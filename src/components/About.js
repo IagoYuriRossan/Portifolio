@@ -1,8 +1,12 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
-import styles from './styles';
+import { View, Text } from 'react-native';
+import { useTheme } from '../context/ThemeContext';
+import { getStyles } from './themedStyles';
 
 const About = () => {
+  const { theme } = useTheme();
+  const styles = getStyles(theme);
+
   return (
     <View style={styles.section} nativeID="divSobre">
       <Text style={styles.sectionTitle}>Sobre</Text>

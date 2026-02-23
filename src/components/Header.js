@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Linking } from 'react-native';
-import styles from './styles';
+import { useTheme } from '../context/ThemeContext';
+import { getStyles } from './themedStyles';
 
 const Header = () => {
+  const { theme, isDark, toggleTheme } = useTheme();
+  const styles = getStyles(theme);
+
   return (
     <View style={styles.topbar}>
       <View style={styles.logoContainer}>
@@ -24,6 +28,9 @@ const Header = () => {
         </TouchableOpacity>
         <TouchableOpacity onPress={() => Linking.openURL('#divContato')}>
           <Text style={styles.navLink}>Contato</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.themeToggle} onPress={toggleTheme}>
+          <Text style={styles.themeToggleText}>{isDark ? '☀️' : '🌙'}</Text>
         </TouchableOpacity>
       </View>
     </View>
