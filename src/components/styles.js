@@ -1,24 +1,40 @@
 import { StyleSheet, Platform, Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('window');
+
+// Breakpoints para diferentes tamanhos de tela
+const isMobile = width < 480;
+const isTablet = width >= 480 && width < 768;
+const isSmallLaptop = width >= 768 && width < 1024;  // 15"
+const isMediumLaptop = width >= 1024 && width < 1366; // 15.6", 16"
+const isLargeScreen = width >= 1366;  // 19.5", 21.5"+
+
 const isWide = width > 800;
 const PRIMARY = '#b91c1c';
 const BG = '#f5f0eb';
 
+// Largura máxima do conteúdo para telas grandes
+const maxContentWidth = 1200;
+
 export default StyleSheet.create({
   container: {
-    padding: isWide ? 40 : 20,
+    padding: isMobile ? 12 : isTablet ? 16 : isSmallLaptop ? 24 : 40,
     paddingTop: Platform.OS === 'web' ? 48 : 24,
     backgroundColor: BG,
-    alignItems: 'stretch'
+    alignItems: 'center'
+  },
+  innerContainer: {
+    width: '100%',
+    maxWidth: maxContentWidth
   },
   topbar: {
     width: '100%',
+    maxWidth: maxContentWidth,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 16,
-    paddingHorizontal: isWide ? 40 : 16
+    paddingHorizontal: isMobile ? 12 : isTablet ? 16 : 40
   },
   header: {
     marginBottom: 24,
@@ -53,13 +69,15 @@ export default StyleSheet.create({
   },
   section: {
     marginVertical: 16,
-    padding: 18,
+    padding: isMobile ? 14 : 18,
     borderRadius: 10,
     backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOpacity: 0.03,
     shadowRadius: 8,
-    elevation: 2
+    elevation: 2,
+    width: '100%',
+    maxWidth: maxContentWidth
   },
   sectionTitle: {
     fontSize: 20,
@@ -82,7 +100,7 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
     marginVertical: 8,
     borderRadius: 8,
-    width: isWide ? '48%' : '100%',
+    width: isMobile ? '100%' : isTablet ? '100%' : '48%',
     shadowColor: '#000',
     shadowOpacity: 0.03,
     shadowRadius: 6,
@@ -122,7 +140,7 @@ export default StyleSheet.create({
   },
   logoMain: {
     fontWeight: '900',
-    fontSize: 42,
+    fontSize: isMobile ? 32 : 42,
     color: '#b91c1c',
     letterSpacing: -2
   },
@@ -140,19 +158,21 @@ export default StyleSheet.create({
   /* HERO */
   hero: {
     width: '100%',
-    minHeight: isWide ? 420 : 360,
-    flexDirection: isWide ? 'row' : 'column',
+    maxWidth: maxContentWidth,
+    minHeight: isMobile ? 300 : isTablet ? 360 : 480,
+    flexDirection: isMobile || isTablet ? 'column' : 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 20,
-    paddingHorizontal: isWide ? 40 : 0
+    paddingHorizontal: isMobile ? 12 : isTablet ? 16 : 40
   },
   heroLeft: {
     flex: 1,
-    paddingRight: isWide ? 40 : 0
+    paddingRight: isMobile || isTablet ? 0 : 40,
+    marginBottom: isMobile || isTablet ? 20 : 0
   },
   heroRight: {
-    width: isWide ? '40%' : '100%',
+    width: isMobile ? '100%' : isTablet ? '60%' : '40%',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -166,7 +186,7 @@ export default StyleSheet.create({
     paddingLeft: 8
   },
   heroTitle: {
-    fontSize: isWide ? 44 : 28,
+    fontSize: isMobile ? 24 : isTablet ? 28 : isSmallLaptop ? 36 : 44,
     fontWeight: '800',
     marginBottom: 12,
     color: '#0f172a'
@@ -192,18 +212,20 @@ export default StyleSheet.create({
     fontWeight: '700'
   },
   heroAvatar: {
-    width: isWide ? 260 : 180,
-    height: isWide ? 260 : 180,
+    width: isMobile ? 160 : isTablet ? 200 : isSmallLaptop ? 220 : 280,
+    height: isMobile ? 160 : isTablet ? 200 : isSmallLaptop ? 220 : 280,
     borderRadius: 9999,
     borderWidth: 6,
     borderColor: '#fff'
   },
   socialLeft: {
-    position: 'absolute',
-    left: 12,
-    top: isWide ? 180 : 320,
-    flexDirection: 'column',
-    alignItems: 'center'
+    position: isMobile || isTablet ? 'relative' : 'absolute',
+    left: isMobile || isTablet ? 0 : 12,
+    top: isMobile || isTablet ? 0 : isSmallLaptop ? 160 : 180,
+    flexDirection: isMobile || isTablet ? 'row' : 'column',
+    alignItems: 'center',
+    justifyContent: isMobile || isTablet ? 'center' : 'flex-start',
+    marginTop: isMobile || isTablet ? 16 : 0
   },
   socialIcon: {
     width: 36,
@@ -220,10 +242,12 @@ export default StyleSheet.create({
     fontSize: 14
   },
   emailRight: {
-    position: 'absolute',
-    right: 12,
-    top: isWide ? 220 : 420,
-    transform: [{ rotate: '90deg' }]
+    position: isMobile || isTablet ? 'relative' : 'absolute',
+    right: isMobile || isTablet ? 0 : 12,
+    top: isMobile || isTablet ? 0 : isSmallLaptop ? 200 : 220,
+    transform: isMobile || isTablet ? [] : [{ rotate: '90deg' }],
+    marginTop: isMobile || isTablet ? 12 : 0,
+    alignItems: 'center'
   },
   emailText: {
     color: '#b91c1c',
