@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "dev": "cross-env CHOKIDAR_USEPOLLING=true CHOKIDAR_INTERVAL=100 expo start --web"
+  },
+  "dependencies": {
+    "expo": "~48.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.14",
+    "react-native-web": "0.18.10",
+    "@expo/webpack-config": "^18.0.1"
+  }
+  ,
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
