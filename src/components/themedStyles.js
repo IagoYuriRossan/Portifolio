@@ -95,9 +95,9 @@ export const getStyles = (theme) => StyleSheet.create({
     justifyContent: 'space-between'
   },
   projectCard: {
-    padding: 14,
+    padding: 18,
     backgroundColor: theme.card,
-    marginVertical: 8,
+    marginVertical: 12,
     borderRadius: 8,
     width: isMobile ? '100%' : isTablet ? '100%' : '48%',
     shadowColor: '#000',
@@ -107,7 +107,8 @@ export const getStyles = (theme) => StyleSheet.create({
   },
   projectTitle: {
     fontWeight: '700',
-    marginBottom: 6,
+    fontSize: isMobile ? 17 : 18,
+    marginBottom: 10,
     color: theme.text
   },
   cta: {

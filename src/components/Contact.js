@@ -22,7 +22,7 @@ const Contact = () => {
         <Text style={styles.heroButtonText}>Enviar email</Text>
       </TouchableOpacity>
 
-      <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 10 }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20 }}>
         <TouchableOpacity onPress={() => Linking.openURL(`tel:${phone}`)}>
           <Text style={styles.highlight}>Ligar</Text>
         </TouchableOpacity>

@@ -20,7 +20,7 @@ const Skills = () => {
     <View style={styles.section} nativeID="divHabilidades">
       <Text style={styles.sectionTitle}>Habilidades</Text>
       {Object.keys(skills).map(cat => (
-        <View key={cat} style={{ marginBottom: 8 }}>
+        <View key={cat} style={{ marginBottom: 20 }}>
           <Text style={styles.expRole}>{cat}</Text>
           <Text style={styles.paragraph}>{skills[cat].join(' · ')}</Text>
         </View>
