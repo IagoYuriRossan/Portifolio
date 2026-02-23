@@ -22,9 +22,6 @@ const Hero = () => {
           construir boas relações. Tenho experiência em TI, desenvolvimento Full‑Stack
           e Mobile, e gosto de criar soluções focadas no usuário.
         </Text>
-        <TouchableOpacity style={styles.heroButton} onPress={() => Linking.openURL('#divSobre')}>
-          <Text style={styles.heroButtonText}>Conheça mais sobre mim</Text>
-        </TouchableOpacity>
       </View>
 
       <View style={styles.heroRight}>
