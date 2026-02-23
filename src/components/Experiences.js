@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { getStyles } from './themedStyles';
+import FadeInSection from './FadeInSection';
+import StaggeredItem from './StaggeredItem';
 
 const experiences = [
   {
@@ -46,16 +48,18 @@ const Experiences = () => {
   const styles = getStyles(theme);
 
   return (
-    <View style={styles.section} nativeID="divExperiencias">
-      <Text style={styles.sectionTitle}>Experiências</Text>
-      {experiences.map(e => (
-        <View key={e.id} style={{ marginBottom: 20 }}>
-          <Text style={styles.expRole}>{e.role} — {e.company}</Text>
-          <Text style={styles.expPeriod}>{e.period}</Text>
-          <Text style={styles.paragraph}>{e.desc}</Text>
-        </View>
-      ))}
-    </View>
+    <FadeInSection style={styles.section} direction="up">
+      <View nativeID="divExperiencias">
+        <Text style={styles.sectionTitle}>Experiências</Text>
+        {experiences.map((e, index) => (
+          <StaggeredItem key={e.id} index={index} style={{ marginBottom: 20 }}>
+            <Text style={styles.expRole}>{e.role} — {e.company}</Text>
+            <Text style={styles.expPeriod}>{e.period}</Text>
+            <Text style={styles.paragraph}>{e.desc}</Text>
+          </StaggeredItem>
+        ))}
+      </View>
+    </FadeInSection>
   );
 };
 

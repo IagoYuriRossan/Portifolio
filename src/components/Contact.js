@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Linking } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { getStyles } from './themedStyles';
+import FadeInSection from './FadeInSection';
+import StaggeredItem from './StaggeredItem';
 
 const Contact = () => {
   const { theme } = useTheme();
@@ -12,28 +14,40 @@ const Contact = () => {
   const linkedin = 'https://www.linkedin.com/in/iago-yuri-rossan-ab792419b/';
 
   return (
-    <View style={styles.section} nativeID="divContato">
-      <Text style={styles.sectionTitle}>Contato</Text>
-      <Text style={styles.paragraph}>Localização: Sorocaba – SP</Text>
-      <Text style={styles.paragraph}>Telefone: (15) 99284-9046</Text>
-      <Text style={styles.paragraph}>Email: iagorossan321@gmail.com</Text>
+    <FadeInSection style={styles.section} direction="up">
+      <View nativeID="divContato">
+        <Text style={styles.sectionTitle}>Contato</Text>
+        <StaggeredItem index={0}>
+          <Text style={styles.paragraph}>Localização: Sorocaba – SP</Text>
+        </StaggeredItem>
+        <StaggeredItem index={1}>
+          <Text style={styles.paragraph}>Telefone: (15) 99284-9046</Text>
+        </StaggeredItem>
+        <StaggeredItem index={2}>
+          <Text style={styles.paragraph}>Email: iagorossan321@gmail.com</Text>
+        </StaggeredItem>
 
-      <TouchableOpacity onPress={() => Linking.openURL(`mailto:${email}`)} style={styles.heroButton}>
-        <Text style={styles.heroButtonText}>Enviar email</Text>
-      </TouchableOpacity>
+        <StaggeredItem index={3}>
+          <TouchableOpacity onPress={() => Linking.openURL(`mailto:${email}`)} style={styles.heroButton}>
+            <Text style={styles.heroButtonText}>Enviar email</Text>
+          </TouchableOpacity>
+        </StaggeredItem>
 
-      <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20 }}>
-        <TouchableOpacity onPress={() => Linking.openURL(`tel:${phone}`)}>
-          <Text style={styles.highlight}>Ligar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Linking.openURL(github)}>
-          <Text style={styles.highlight}>GitHub</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Linking.openURL(linkedin)}>
-          <Text style={styles.highlight}>LinkedIn</Text>
-        </TouchableOpacity>
+        <StaggeredItem index={4}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20 }}>
+            <TouchableOpacity onPress={() => Linking.openURL(`tel:${phone}`)}>
+              <Text style={styles.highlight}>Ligar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Linking.openURL(github)}>
+              <Text style={styles.highlight}>GitHub</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Linking.openURL(linkedin)}>
+              <Text style={styles.highlight}>LinkedIn</Text>
+            </TouchableOpacity>
+          </View>
+        </StaggeredItem>
       </View>
-    </View>
+    </FadeInSection>
   );
 };
 

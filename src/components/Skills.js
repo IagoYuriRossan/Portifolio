@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { getStyles } from './themedStyles';
+import FadeInSection from './FadeInSection';
+import StaggeredItem from './StaggeredItem';
 
 const skills = {
   'Linguagens & Tecnologias': ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'React Native', 'Node.js', 'Python', 'MySQL', 'MongoDB'],
@@ -17,15 +19,17 @@ const Skills = () => {
   const styles = getStyles(theme);
 
   return (
-    <View style={styles.section} nativeID="divHabilidades">
-      <Text style={styles.sectionTitle}>Habilidades</Text>
-      {Object.keys(skills).map(cat => (
-        <View key={cat} style={{ marginBottom: 20 }}>
-          <Text style={styles.expRole}>{cat}</Text>
-          <Text style={styles.paragraph}>{skills[cat].join(' · ')}</Text>
-        </View>
-      ))}
-    </View>
+    <FadeInSection style={styles.section} direction="up">
+      <View nativeID="divHabilidades">
+        <Text style={styles.sectionTitle}>Habilidades</Text>
+        {Object.keys(skills).map((cat, index) => (
+          <StaggeredItem key={cat} index={index} style={{ marginBottom: 20 }}>
+            <Text style={styles.expRole}>{cat}</Text>
+            <Text style={styles.paragraph}>{skills[cat].join(' · ')}</Text>
+          </StaggeredItem>
+        ))}
+      </View>
+    </FadeInSection>
   );
 };
 

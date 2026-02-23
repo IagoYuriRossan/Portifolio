@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Linking } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { getStyles } from './themedStyles';
+import FadeInSection from './FadeInSection';
+import StaggeredItem from './StaggeredItem';
 
 const sampleProjects = [
   {
@@ -35,17 +37,21 @@ const Projects = () => {
   const styles = getStyles(theme);
 
   return (
-    <View style={styles.section} nativeID="divProjetos">
-      <Text style={styles.sectionTitle}>Projetos</Text>
-      <View style={styles.projectsRow}>
-        {sampleProjects.map(p => (
-          <TouchableOpacity key={p.id} onPress={() => Linking.openURL(p.url)} style={styles.projectCard}>
-            <Text style={styles.projectTitle}>{p.title}</Text>
-            <Text style={styles.paragraph}>{p.desc}</Text>
-          </TouchableOpacity>
-        ))}
+    <FadeInSection style={styles.section} direction="up">
+      <View nativeID="divProjetos">
+        <Text style={styles.sectionTitle}>Projetos</Text>
+        <View style={styles.projectsRow}>
+          {sampleProjects.map((p, index) => (
+            <StaggeredItem key={p.id} index={index} style={styles.projectCard}>
+              <TouchableOpacity onPress={() => Linking.openURL(p.url)}>
+                <Text style={styles.projectTitle}>{p.title}</Text>
+                <Text style={styles.paragraph}>{p.desc}</Text>
+              </TouchableOpacity>
+            </StaggeredItem>
+          ))}
+        </View>
       </View>
-    </View>
+    </FadeInSection>
   );
 };
 
