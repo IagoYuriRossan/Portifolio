@@ -316,7 +316,9 @@ export const getStyles = (theme) => StyleSheet.create({
   emailText: {
     color: theme.primary,
     fontWeight: '600',
-    fontSize: 14
+    fontSize: 14,
+    marginTop: 12,
+    textAlign: 'center'
   },
   
   // Estilos específicos para experiências
