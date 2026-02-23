@@ -26,6 +26,7 @@ const Hero = () => {
 
       <View style={styles.heroRight}>
         <Image source={{ uri: isWeb ? localWebPath : fallback }} style={styles.heroAvatar} />
+        <Text style={styles.emailText}>iagorossan321@gmail.com</Text>
       </View>
 
       <View style={styles.socialLeft}>
@@ -38,10 +39,6 @@ const Hero = () => {
         <TouchableOpacity style={styles.socialIcon} onPress={() => Linking.openURL('mailto:iagorossan321@gmail.com')}>
           <Text style={styles.socialIconText}>@</Text>
         </TouchableOpacity>
-      </View>
-
-      <View style={styles.emailRight}>
-        <Text style={styles.emailText}>iagorossan321@gmail.com</Text>
       </View>
     </View>
   );
