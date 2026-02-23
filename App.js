@@ -12,15 +12,17 @@ import styles from './src/components/styles';
 export default function App() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Header />
-      <Hero />
-      <About />
-      <Experiences />
-      <Skills />
-      <Projects />
-      <Contact />
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>Made with React Native · Responsive for web & mobile</Text>
+      <View style={styles.innerContainer}>
+        <Header />
+        <Hero />
+        <About />
+        <Experiences />
+        <Skills />
+        <Projects />
+        <Contact />
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>Made with React Native · Responsive for web & mobile</Text>
+        </View>
       </View>
     </ScrollView>
   );
