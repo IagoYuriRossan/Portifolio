@@ -49,7 +49,7 @@ const Experiences = () => {
     <View style={styles.section} nativeID="divExperiencias">
       <Text style={styles.sectionTitle}>Experiências</Text>
       {experiences.map(e => (
-        <View key={e.id} style={{ marginBottom: 8 }}>
+        <View key={e.id} style={{ marginBottom: 20 }}>
           <Text style={styles.expRole}>{e.role} — {e.company}</Text>
           <Text style={styles.expPeriod}>{e.period}</Text>
           <Text style={styles.paragraph}>{e.desc}</Text>

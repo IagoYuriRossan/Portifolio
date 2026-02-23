@@ -30,7 +30,9 @@ export const getStyles = (theme) => StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 16,
-    paddingHorizontal: isMobile ? 12 : isTablet ? 16 : 40
+    paddingHorizontal: isMobile ? 12 : isTablet ? 16 : 40,
+    position: 'relative',
+    zIndex: 100
   },
   header: {
     marginBottom: 24,
@@ -77,14 +79,14 @@ export const getStyles = (theme) => StyleSheet.create({
     maxWidth: maxContentWidth
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: isMobile ? 22 : 26,
     fontWeight: '700',
-    marginBottom: 10,
+    marginBottom: 16,
     color: theme.text
   },
   paragraph: {
-    fontSize: 15,
-    lineHeight: 22,
+    fontSize: isMobile ? 16 : 17,
+    lineHeight: isMobile ? 26 : 28,
     color: theme.textSecondary
   },
   projectsRow: {
@@ -158,12 +160,58 @@ export const getStyles = (theme) => StyleSheet.create({
     backgroundColor: theme.card,
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: 16,
+    marginLeft: 12,
     borderWidth: 1,
     borderColor: theme.border
   },
   themeToggleText: {
     fontSize: 18
+  },
+  
+  /* MOBILE MENU */
+  mobileHeaderRight: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  hamburger: {
+    width: 44,
+    height: 44,
+    borderRadius: 8,
+    backgroundColor: theme.card,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 8,
+    borderWidth: 1,
+    borderColor: theme.border
+  },
+  hamburgerText: {
+    fontSize: 22,
+    color: theme.primary
+  },
+  mobileMenu: {
+    position: 'absolute',
+    top: 70,
+    left: 0,
+    right: 0,
+    backgroundColor: theme.card,
+    borderRadius: 12,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    elevation: 5,
+    zIndex: 100
+  },
+  mobileMenuItem: {
+    paddingVertical: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: theme.border
+  },
+  mobileMenuText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: theme.text,
+    textAlign: 'center'
   },
 
   /* HERO */
@@ -228,7 +276,9 @@ export const getStyles = (theme) => StyleSheet.create({
     height: isMobile ? 160 : isTablet ? 200 : isSmallLaptop ? 220 : 280,
     borderRadius: 9999,
     borderWidth: 4,
-    borderColor: theme.avatarBorder
+    borderColor: theme.avatarBorder,
+    objectFit: 'cover',
+    objectPosition: 'center 15%'
   },
   socialLeft: {
     position: isMobile || isTablet ? 'relative' : 'absolute',
@@ -271,10 +321,13 @@ export const getStyles = (theme) => StyleSheet.create({
   // Estilos específicos para experiências
   expRole: {
     fontWeight: '700',
-    color: theme.text
+    fontSize: isMobile ? 16 : 17,
+    color: theme.text,
+    marginBottom: 4
   },
   expPeriod: {
     color: theme.primary,
-    marginBottom: 4
+    fontSize: isMobile ? 14 : 15,
+    marginBottom: 8
   }
 });

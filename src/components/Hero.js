@@ -7,7 +7,7 @@ const Hero = () => {
   const { theme } = useTheme();
   const styles = getStyles(theme);
   const isWeb = Platform.OS === 'web';
-  const localWebPath = '/assets/profile.JPG';
+  const localWebPath = '/profile.JPG';
   const fallback = 'https://via.placeholder.com/400.png?text=Iago';
 
   return (
