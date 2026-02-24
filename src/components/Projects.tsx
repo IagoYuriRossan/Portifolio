@@ -29,7 +29,7 @@ const sampleProjects: Project[] = [
     id: 4,
     title: 'Automação de Deploy (CI/CD)',
     desc: 'Fluxos de trabalho com Docker e GitHub Actions para automação de build e deploy, integrando DockerHub e pipelines de entrega contínua.',
-    url: '#'
+    url: 'https://github.com/IagoYuriRossan/AtividadeFinal-CI-CE'
   }
 ];
 

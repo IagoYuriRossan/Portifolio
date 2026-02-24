@@ -98,7 +98,7 @@ export const getStyles = (theme: ThemeColors) => StyleSheet.create({
   },
   projectCard: {
     padding: 18,
-    backgroundColor: theme.mode === 'dark' ? '#2a3847' : theme.card,
+    backgroundColor: theme.projectCard,
     marginVertical: 12,
     borderRadius: 8,
     width: isMobile ? '100%' : isTablet ? '100%' : '48%',

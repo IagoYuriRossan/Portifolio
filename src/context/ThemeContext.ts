@@ -18,6 +18,7 @@ const darkTheme: ThemeColors = {
   accent: '#0891b2',
   bg: '#0f172a',
   card: '#1e293b',
+  projectCard: '#2a3847',
   text: '#f8fafc',
   textSecondary: '#94a3b8',
   border: '#334155',
@@ -25,16 +26,17 @@ const darkTheme: ThemeColors = {
   avatarBorder: '#06b6d4'
 };
 
-// Paleta Light
+// Paleta Light (com azul claro muito suave)
 const lightTheme: ThemeColors = {
   mode: 'light',
   primary: '#0891b2',
   accent: '#06b6d4',
-  bg: '#f8fafc',
+  bg: '#f0f8fc',
   card: '#ffffff',
+  projectCard: '#f5fbff',
   text: '#0f172a',
   textSecondary: '#475569',
-  border: '#e2e8f0',
+  border: '#d4ebf7',
   buttonText: '#ffffff',
   avatarBorder: '#0891b2'
 };

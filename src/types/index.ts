@@ -8,6 +8,7 @@ export interface ThemeColors {
   accent: string;
   bg: string;
   card: string;
+  projectCard: string;
   text: string;
   textSecondary: string;
   border: string;
