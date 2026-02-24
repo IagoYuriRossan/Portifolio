@@ -7,7 +7,7 @@ const Hero: FC = () => {
   const { theme } = useTheme();
   const styles = getStyles(theme);
   const isWeb = Platform.OS === 'web';
-  const localWebPath = '/profile.JPG';
+  const localWebPath = '/assets/profile.JPG';
   const fallback = 'https://via.placeholder.com/400.png?text=Iago';
 
   const fadeLeft = useRef(new Animated.Value(0)).current;
