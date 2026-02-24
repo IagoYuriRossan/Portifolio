@@ -19,19 +19,22 @@ const AppContent: FC = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar barStyle={theme.mode === 'dark' ? 'light-content' : 'dark-content'} />
       <ScrollView 
-        contentContainerStyle={styles.container as any}
+        contentContainerStyle={{ flexGrow: 1 }}
+        style={{ flex: 1 }}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.innerContainer}>
-          <Header />
-          <Hero />
-          <About />
-          <Experiences />
-          <Skills />
-          <Projects />
-          <Contact />
-          <View style={styles.footer}>
-            <Text style={styles.footerText}>Made with React Native · iOS & Android</Text>
+        <View style={[styles.container, { minHeight: '100%' }]}>
+          <View style={styles.innerContainer}>
+            <Header />
+            <Hero />
+            <About />
+            <Experiences />
+            <Skills />
+            <Projects />
+            <Contact />
+            <View style={styles.footer}>
+              <Text style={styles.footerText}>Made with React Native · iOS & Android</Text>
+            </View>
           </View>
         </View>
       </ScrollView>

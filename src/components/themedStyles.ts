@@ -18,7 +18,8 @@ export const getStyles = (theme: ThemeColors) => StyleSheet.create({
     padding: isMobile ? 12 : isTablet ? 16 : isSmallLaptop ? 24 : 40,
     paddingTop: Platform.OS === 'web' ? 48 : 24,
     backgroundColor: theme.bg,
-    alignItems: 'center'
+    alignItems: 'center',
+    overflow: 'hidden' as any
   },
   innerContainer: {
     width: '100%',
