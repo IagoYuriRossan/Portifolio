@@ -20,7 +20,7 @@
       "@context/*": ["src/context/*"],
       "@types/*": ["src/types/*"]
     },
-    "types": ["react", "react-native", "node"]
+    "types": ["react-native", "node"]
   },
   "include": ["App.tsx", "src/**/*"],
   "exclude": ["node_modules", "dist", ".expo"]
