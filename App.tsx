@@ -42,8 +42,7 @@ const AppContent: FC = () => {
 const App: FC = () => {
   return React.createElement(
     ThemeProvider,
-    {},
-    React.createElement(AppContent)
+    { children: React.createElement(AppContent) }
   );
 };
 
