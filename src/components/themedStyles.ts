@@ -302,6 +302,7 @@ export const getStyles = (theme: ThemeColors) => StyleSheet.create({
     backgroundColor: theme.primary,
     borderRadius: 8,
     marginVertical: 6,
+    marginHorizontal: isMobile || isTablet ? 8 : 0,
     alignItems: 'center',
     justifyContent: 'center'
   },
