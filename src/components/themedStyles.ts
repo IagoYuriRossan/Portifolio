@@ -82,13 +82,14 @@ export const getStyles = (theme: ThemeColors) => StyleSheet.create({
   sectionTitle: {
     fontSize: isMobile ? 22 : 26,
     fontWeight: '700',
-    marginBottom: 16,
+    marginBottom: isMobile ? 20 : 28,
     color: theme.text
   },
   paragraph: {
     fontSize: isMobile ? 16 : 17,
     lineHeight: isMobile ? 26 : 28,
-    color: theme.textSecondary
+    color: theme.textSecondary,
+    marginBottom: isMobile ? 12 : 16
   },
   projectsRow: {
     flexDirection: 'row',
@@ -97,7 +98,7 @@ export const getStyles = (theme: ThemeColors) => StyleSheet.create({
   },
   projectCard: {
     padding: 18,
-    backgroundColor: theme.card,
+    backgroundColor: theme.mode === 'dark' ? '#2a3847' : theme.card,
     marginVertical: 12,
     borderRadius: 8,
     width: isMobile ? '100%' : isTablet ? '100%' : '48%',
@@ -254,7 +255,8 @@ export const getStyles = (theme: ThemeColors) => StyleSheet.create({
     color: theme.text
   },
   highlight: {
-    color: theme.primary
+    color: theme.primary,
+    marginHorizontal: 12
   },
   heroDesc: {
     fontSize: 16,
@@ -267,7 +269,9 @@ export const getStyles = (theme: ThemeColors) => StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 30,
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
+    marginTop: isMobile ? 16 : 24,
+    marginBottom: isMobile ? 20 : 28
   },
   heroButtonText: {
     color: theme.buttonText,
