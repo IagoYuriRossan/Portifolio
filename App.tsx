@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ScrollView, View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider, useTheme } from './src/context/ThemeContext';
 import { getStyles } from './src/components/themedStyles';
@@ -17,7 +17,7 @@ const AppContent: FC = () => {
   const styles = getStyles(theme);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.bg }}>
       <StatusBar barStyle={theme.mode === 'dark' ? 'light-content' : 'dark-content'} />
       <ScrollView 
         contentContainerStyle={{ flexGrow: 1 }}
@@ -45,8 +45,12 @@ const AppContent: FC = () => {
 
 const App: FC = () => {
   return React.createElement(
-    ThemeProvider,
-    { children: React.createElement(AppContent) }
+    SafeAreaProvider,
+    null,
+    React.createElement(
+      ThemeProvider,
+      { children: React.createElement(AppContent) }
+    )
   );
 };
 
