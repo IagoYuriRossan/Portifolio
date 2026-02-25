@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Linking } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { getStyles } from './themedStyles';
 import FadeInSection from './FadeInSection';
+import HoverCard from './HoverCard';
 import StaggeredItem from './StaggeredItem';
 
 const Contact: FC = () => {
@@ -14,8 +15,9 @@ const Contact: FC = () => {
   const linkedin = 'https://www.linkedin.com/in/iago-yuri-rossan-ab792419b/';
 
   return (
-    <FadeInSection style={styles.section} direction="up">
-      <View nativeID="divContato">
+    <FadeInSection direction="up">
+      <HoverCard style={styles.section}>
+        <View nativeID="divContato">
         <Text style={styles.sectionTitle}>Contato</Text>
         <StaggeredItem index={0}>
           <Text style={styles.paragraph}>Localização: Sorocaba – SP</Text>
@@ -46,7 +48,8 @@ const Contact: FC = () => {
             </TouchableOpacity>
           </View>
         </StaggeredItem>
-      </View>
+        </View>
+      </HoverCard>
     </FadeInSection>
   );
 };

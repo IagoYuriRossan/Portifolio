@@ -78,7 +78,9 @@ export const getStyles = (theme: ThemeColors) => StyleSheet.create({
     shadowRadius: 8,
     elevation: 2,
     width: '100%',
-    maxWidth: maxContentWidth
+    maxWidth: maxContentWidth,
+    borderWidth: 2,
+    borderColor: 'transparent'
   },
   sectionTitle: {
     fontSize: isMobile ? 22 : 26,
@@ -106,7 +108,9 @@ export const getStyles = (theme: ThemeColors) => StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: theme.mode === 'dark' ? 0.2 : 0.08,
     shadowRadius: 6,
-    elevation: 2
+    elevation: 2,
+    borderWidth: 2,
+    borderColor: 'transparent'
   },
   projectTitle: {
     fontWeight: '700',

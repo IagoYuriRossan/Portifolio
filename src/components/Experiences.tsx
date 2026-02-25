@@ -4,6 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import { getStyles } from './themedStyles';
 import FadeInSection from './FadeInSection';
 import StaggeredItem from './StaggeredItem';
+import HoverCard from './HoverCard';
 import { Experience } from '../types';
 
 const experiences: Experience[] = [
@@ -49,8 +50,9 @@ const Experiences: FC = () => {
   const styles = getStyles(theme);
 
   return (
-    <FadeInSection style={styles.section} direction="up">
-      <View nativeID="divExperiencias">
+    <FadeInSection direction="up">
+      <HoverCard style={styles.section}>
+        <View nativeID="divExperiencias">
         <Text style={styles.sectionTitle}>Experiências</Text>
         {experiences.map((e, index) => (
           <StaggeredItem key={e.id} index={index} style={{ marginBottom: 20 }}>
@@ -59,7 +61,8 @@ const Experiences: FC = () => {
             <Text style={styles.paragraph}>{e.desc}</Text>
           </StaggeredItem>
         ))}
-      </View>
+        </View>
+      </HoverCard>
     </FadeInSection>
   );
 };

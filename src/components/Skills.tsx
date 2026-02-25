@@ -4,6 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import { getStyles } from './themedStyles';
 import FadeInSection from './FadeInSection';
 import StaggeredItem from './StaggeredItem';
+import HoverCard from './HoverCard';
 import { SkillsCategory } from '../types';
 
 const skills: SkillsCategory = {
@@ -20,8 +21,9 @@ const Skills: FC = () => {
   const styles = getStyles(theme);
 
   return (
-    <FadeInSection style={styles.section} direction="up">
-      <View nativeID="divHabilidades">
+    <FadeInSection direction="up">
+      <HoverCard style={styles.section}>
+        <View nativeID="divHabilidades">
         <Text style={styles.sectionTitle}>Habilidades</Text>
         {Object.keys(skills).map((cat, index) => (
           <StaggeredItem key={cat} index={index} style={{ marginBottom: 20 }}>
@@ -29,7 +31,8 @@ const Skills: FC = () => {
             <Text style={styles.paragraph}>{skills[cat].join(' · ')}</Text>
           </StaggeredItem>
         ))}
-      </View>
+        </View>
+      </HoverCard>
     </FadeInSection>
   );
 };
